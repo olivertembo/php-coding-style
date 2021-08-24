@@ -30,7 +30,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
 
     //advertisementS
-    Route::get('/advertisements',                    [AdvertisementController::class, 'index'])->name('advertisement-index');
+    Route::get('/advertisements',                    [AdvertisementController::class, 'index'])->name('advertisements');
     Route::get('/advertisement/{advertisement:uuid}',[AdvertisementController::class, 'show'])->name('advertisement-show');
     Route::get('/advertisements-edit/{advertisement:uuid}',[AdvertisementController::class, 'edit'])->name('advertisement-edit');
     
