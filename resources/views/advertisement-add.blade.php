@@ -12,10 +12,16 @@
     <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
     <script src='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js'></script>
     <script src='https://unpkg.com/filepond/dist/filepond.min.js'></script>
+
+    <style>
+        .filepond--root .filepond--credits[style] {
+            display: none;
+        }
+    </style>
     @endsection
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Advertisements') }}
+            {{ __('Create New Add') }}
         </h2>
     </x-slot>
 
@@ -23,7 +29,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    New Add
+                    Hello
                 </div>
             </div>
         </div>
@@ -32,28 +38,30 @@
 
 
     <section class="container px-6 py-4 mx-auto">
-        <form class="w-full max-w-lg">
+        <form class="w-full max-w-lg" action="" method="POST">
+            @csrf
             <div class="flex flex-wrap -mx-3 mb-6">
                 <div class="w-full md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                         Title
                     </label>
-                    <input name="title" required class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+                    <input name="title" maxlength="225" required class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
                 </div>
             </div>
 
             <div>
                 <label class="block text-left" style="max-width: 400px;">
                     <span class="text-gray-700">Description</span>
-                    <textarea name="description" required class="form-textarea mt-1 block w-full" rows="3" placeholder="Enter some long form content."></textarea>
+                    <textarea name="description" maxlength="1023" required class="form-textarea mt-1 block w-full" rows="3" placeholder="Enter some long form content."></textarea>
                 </label>
+                <br />
                 <p>
-                    Images
+                    Upload up to 3 images
                 </p>
                 <div>
                     <div class="col s12 m8">
 
-                        <input type="file" class="filepond" name="filepond[]" multiple data-max-file-size="6MB" data-max-files="5" />
+                        <input type="file" class="filepond" name="filepond[]" multiple data-max-file-size="6MB" data-max-files="3" />
                         <input type="hidden" value="Upload Photo(s)" name="B1" class="btn btn-info" />
                         <input type="hidden" name="sentPhotos" value="1" />
 
@@ -117,10 +125,10 @@
                             });
                         </script>
                         <br />
-                        <div class="mt-5"><button name="submit" type="submit" class="btn" href="#">Publish property</button></div>
+                        <div class="mt-5"><button name="submit" type="submit" class="btn bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-content: flex-end" href="#">Publish property</button></div>
                         <br /><br />
                     </div>
-                    
+
                 </div>
             </div>
         </form>

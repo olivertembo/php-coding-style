@@ -20,10 +20,10 @@ class AdvertisementSeeder extends Seeder
             DB::table('advertisements')->insert([
                 'uuid' => HelperController::generateUniquePublicId('advertisements', 'uuid'),
                 'title' => "Title $i",
-                'description' => "Description $i",
-                'photo_1'  => "https://picsum.photos/seed/picsum/200",
-                'photo_2'=> "https://picsum.photos/seed/picsum/200",
-                'photo_3'=> "https://picsum.photos/seed/picsum/200",
+                'description' => "description $i Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                'photo_1'  => null,
+                'photo_2'=> null, //https://picsum.photos/seed/picsum/200
+                'photo_3'=> null,
                 'user_id' => $i,
             ]);
         }

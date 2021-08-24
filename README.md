@@ -22,7 +22,14 @@ This projects highlights use of php with a modern mvc framework(Laravel). It uti
 ### On MacOs
 
 -- Clone repo
+-- run 'docker-compose up' That should start local
 -- run: 'composer update' in terminal
+-- View project at: localhost:80
+
+--Seed the inital values of the databse by running the following commands
+  php artisan migrate
+  php artisan db:seed
+  php artisan storage
 
 ### On Windows | using command prompt
 

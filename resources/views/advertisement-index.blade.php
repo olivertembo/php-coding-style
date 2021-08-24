@@ -14,9 +14,9 @@
                         New Ad
                     </a>
                 </div>
-                
-                    
-                
+
+
+
             </div>
         </div>
     </div>
@@ -27,31 +27,45 @@
 
         @foreach($data['ads'] as $item)
 
+
         <div class="grid gap-6 mb-12 md:grid-cols-1 lg:grid-cols-1">
             <!-- Card 1 -->
             <div class="flex items-center p-4 bg-white border-2 border-gray-200 rounded-lg shadow-sm dark:bg-gray-800">
-                @if($item['photo_1'])
-                <img alt="mountain" class="w-45 rounded-md border-2 border-gray-300" src="{{ $item['photo_1'] }}" />
-                @endif
-                @if($item['photo_1'])
-                <img alt="mountain" class="w-45 rounded-md border-2 border-gray-300" src="{{ $item['photo_2'] }}" />
-                @endif
-                @if($item['photo_1'])
-                <img alt="mountain" class="w-45 rounded-md border-2 border-gray-300" src="{{ $item['photo_3'] }}" />
-                @endif
+                <div class="images-ad">
+                    @if($item['photo_1'])
+                    <img alt="mountain" class="w-45 rounded-md border-2 border-gray-300 ad-image" src="{{ $item['photo_1'] }}" />
+                    @endif
+                    @if($item['photo_2'])
+                    <img alt="mountain" class="w-45 rounded-md border-2 border-gray-300 ad-image" src="{{ $item['photo_2'] }}" />
+                    @endif
+                    @if($item['photo_3'])
+                    <img alt="mountain" class="w-45 rounded-md border-2 border-gray-300 ad-image" src="{{ $item['photo_3'] }}" />
+                    @endif
+                </div>
+
 
                 <div id="body" class="flex flex-col ml-5">
                     <h4 id="name" class="text-xl font-semibold mb-2">Add Title {{ $item['title']}} </h4>
                     <p id="job" class="text-gray-800 mt-2"> {{ $item['description']}} : Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <div class="flex mt-5">
                         <div class="operations">
-                            <a class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                            <a onclick="deleteAdd('{{ $item['uuid'] }}')" href="#delete" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 mx-4 px-4 border border-blue-500 hover:border-transparent rounded">
                                 Delete
                             </a>
-                            <a href="/advertisement/{{ $item['uuid'] }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                            <div style="display:none">
+                                <form style="display:none" id="{{ $item['uuid'] }}" method="POST" action="/advertisements-delete/{{ $item['uuid'] }}">
+                                    @csrf
+                                    <a style="display:none" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 mx-4 px-4 border border-blue-500 hover:border-transparent rounded" href="#" onclick="event.preventDefault();
+                                                this.closest('form').submit();">Delete 2</a>
+                                </form>
+                            </div>
+
+
+
+                            <a href="/advertisement/{{ $item['uuid'] }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2  mx-4 px-4 border border-blue-500 hover:border-transparent rounded">
                                 Open
                             </a>
-                            <a href="/advertisements-edit/{{ $item['uuid'] }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                            <a href="/advertisements-edit/{{ $item['uuid'] }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2  mx-4 px-4 border border-blue-500 hover:border-transparent rounded">
                                 Edit
                             </a>
 
@@ -63,7 +77,7 @@
         @endforeach
 
         <br />
-        <div class="center-align">
+        <div class="center-align" style="text-align: center;">
             <ul class="pagination">
                 @foreach($data['advertisements']['links'] as $key => $link)
 
