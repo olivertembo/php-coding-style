@@ -21,13 +21,14 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+
     return view('dashboard');
+
 })->middleware(['auth'])->name('dashboard');
 
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/home',                 [            DashboardController::class, 'index']);
     //advertisementS
     Route::get('/advertisements',                    [AdvertisementController::class, 'index'])->name('advertisement-index');
     Route::get('/advertisement/{advertisement:uuid}',[AdvertisementController::class, 'show'])->name('advertisement-show');
