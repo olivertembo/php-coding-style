@@ -16,7 +16,7 @@ class AdvertisementSeeder extends Seeder
     public function run()
     {
 
-        for ($i=0; $i < 2; $i++) {
+        for ($i=1; $i < 3; $i++) {
             DB::table('advertisements')->insert([
                 'uuid' => HelperController::generateUniquePublicId('advertisements', 'uuid'),
                 'title' => "Title $i",
