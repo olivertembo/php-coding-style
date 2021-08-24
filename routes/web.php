@@ -28,13 +28,15 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/home',                 [            DashboardController::class, 'index']);
-    //INSPECTIONS
-    Route::get('/advertisements',                    [AdvertisementController::class, 'show'])->name('inspection-show');
-    Route::get('/advertisement/{advertisement:uuid}',[AdvertisementController::class, 'show'])->name('inspection-show');
+    //advertisementS
+    Route::get('/advertisements',                    [AdvertisementController::class, 'index'])->name('advertisement-index');
+    Route::get('/advertisement/{advertisement:uuid}',[AdvertisementController::class, 'show'])->name('advertisement-show');
+    Route::get('/advertisements-edit/{advertisement:uuid}',[AdvertisementController::class, 'edit'])->name('advertisement-edit');
     
-    Route::post('/advertisements-add',                [AdvertisementController::class, 'store'])->name('inspection-add');
-    Route::post('/advertisements-update',             [AdvertisementController::class, 'update'])->name('inspection-update'); //Edit
-    Route::post('/advertisements-delete',             [AdvertisementController::class, 'destroy'])->name('inspection-destroy'); //Delete
+    Route::get('/advertisements-add',                [AdvertisementController::class, 'create'])->name('advertisement-add');
+    Route::post('/advertisements-add',                [AdvertisementController::class, 'store'])->name('advertisement-store');
+    Route::post('/advertisements-update',             [AdvertisementController::class, 'update'])->name('advertisement-update'); //Edit
+    Route::post('/advertisements-delete',             [AdvertisementController::class, 'destroy'])->name('advertisement-destroy'); //Delete
 
 });
 

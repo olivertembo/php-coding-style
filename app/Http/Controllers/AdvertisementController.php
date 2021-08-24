@@ -12,9 +12,46 @@ class AdvertisementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $advertisements = Advertisement::orderBy('title', 'ASC')
+        ->where('visible', '=', 'Y')
+        ->get()->toArray();
+
+        //SEARCH QUERIES
+        $searchquery_date = $request->input('date');
+        $searchquery_title = $request->input('title');
+        $searchquery_orderBy = $request->input('order-by');
+
+        $results = [];
+
+        foreach($advertisements as $ad){
+
+            //APPLY SEARCH FILTERS:: DATE
+            if(!empty($searchquery_date) && $searchquery_date){
+
+            }
+
+            //APPLY SEARCH FILTERS: TITLE
+            if(!empty($searchquery_title) && $searchquery_title){
+
+            }
+
+            $results [] = $ad;
+           
+        }
+
+        $data = [
+            'ads' => $results,
+        ];
+
+
+        
+        echo "List all Products";
+
+        dd($advertisements);
+
+        return view('advertisement-index', ['data' => $data]);
     }
 
     /**
@@ -80,6 +117,13 @@ class AdvertisementController extends Controller
      */
     public function destroy(Advertisement $advertisement)
     {
-        //
+        echo "deleting Ad";
+        
+        dd($advertisement);
+        if(!$advertisement){
+            return redirect()->back();
+        }
+
+
     }
 }
