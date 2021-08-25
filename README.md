@@ -6,6 +6,8 @@ This application is a service for storing, creating, displaying and editing adve
 
 The purpose of the project is to highlight coding style, the use of php with a modern mvc
 
+## Technologies
+
 1. PHP 8
 2. Laravel 8
 3. MySQL
@@ -27,8 +29,10 @@ The steps are the same for both MacOs and Windows machine
 
 1. Clone repo  
 2. Run the following commands in the terminal in root directory of cloned repo  
-   `composer update`  
-   `docker-compose up`
+   ```
+   composer update
+   docker-compose up
+   ```
 
 3. Open up docker. In your running container, open CLI the for the container 'service-store_laravel.test_1'.  
    Run in the new terminal window. This will run all database migrations, seed, and create symlink for image storage.
