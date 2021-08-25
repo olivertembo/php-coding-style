@@ -2,42 +2,64 @@
 
 ## About the Project
 
-This projects highlights use of php with a modern mvc framework(Laravel). It utilize:
+This projects highlights use of php with a modern mvc framework(Laravel). It utilize the following.
 
 1. PHP 8
-2. Laravel framework
+2. Laravel 8
 3. MySQL
-4. Bootstrap css framework
+4. Tailwind css framework
 5. docker
-6. composer
 
 ## Prerequisites
 
+This project will work on any OS given you have Docker installed.
+
 1. MacOs/Windows/Linux
-2. Composer
-3. Docker
+2. Docker
 
 ## STARTING LOCAL Environment
 
 ### On MacOs
 
--- Clone repo
--- run 'docker-compose up' That should start local
--- run: 'composer update' in terminal
--- View project at: localhost:80
+1. Clone repo
+2. Run the following commands in the terminal in root directory of cloned repo
+   Run `docker-compose up` This will create new container in docker then start it
+   Run `composer update` This should update all dependancies of composer
+   Run `npm install` npm dependancy packages
 
---Seed the inital values of the databse by running the following commands
-  php artisan migrate
-  php artisan db:seed
-  php artisan storage
+3. Run the following commands to create initial users for the application
+   `php artisan migrate` :to migrate databases
+   `php artisan db:seed` : to seed initial data
+   `php artisan storage` : to make a symlink for image storage
+
+4. View project at: localhost:80
+
+5. Use the following credentials to log in
+   user_1@example.com password_1
+   user_2@example.com password_2
 
 ### On Windows | using command prompt
 
--- Clone repo
--- run: 'composer update' in terminal
--- run 'docker-compose up' That should start local
+1. Clone repo
+2. Run the following commands in the terminal in root directory of cloned repo
+   Run `docker-compose up` This will create new container in docker then start it
+   Run `composer update` This should update all dependancies of composer
+   Run `npm install` npm dependancy packages
 
-##
+3. Run the following commands to create initial users for the application
+   `php artisan migrate` :to migrate databases
+   `php artisan db:seed` : to seed initial data
+   `php artisan storage` : to make a symlink for image storage
+
+4. View project at: localhost:80
+
+5. Use the following credentials to log in
+   user_1@example.com password_1
+   user_2@example.com password_2
+
+## Project Structure
+
+## Use the following .env file
 
 APP_NAME="PHP TEST"
 APP_ENV=local
