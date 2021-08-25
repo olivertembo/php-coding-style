@@ -6,14 +6,24 @@ use Illuminate\View\Component;
 
 class datepicker extends Component
 {
+
+
+    /**
+     * The alert type.
+     *
+     * @var string
+     */
+    public $date;
+
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($date)
     {
-        //
+        $this->date = $date;
     }
 
     /**

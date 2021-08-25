@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\URL;
 
 class HomeController extends Controller
 {
-    
+
     public function index(Request $request)
     {
 
@@ -21,18 +21,21 @@ class HomeController extends Controller
         //SEARCH QUERIES
         $searchquery_date = $request->input('date');
         $searchquery_title = $request->input('title');
-        $searchquery_orderBy = 'ASC'; //default order by ascending
-
+        $searchquery_orderBy = $request->input('order-by'); //default order by ascending
 
 
         //overide order by if filter is set
-        if (!empty($searchquery_orderBy) && $searchquery_orderBy) {
-            $searchquery_orderBy = $request->input('order-by');
+        if (empty($searchquery_orderBy) || !$searchquery_orderBy) {
+            $searchquery_orderBy = 'ASC';
         }
 
-      
+        //The datepicker's month starts from index zero instead of one
+        if(!empty($searchquery_date) && $searchquery_date){
+            $time = strtotime($searchquery_date);
+            $searchquery_date = date("Y-m-d", strtotime("+1 month", $time));
+        }
 
-        $advertisements = Advertisement::orderBy('title', 'ASC')
+        $advertisements = Advertisement::orderBy('id', $searchquery_orderBy)
             ->where([
                 ['visible', '=', 'Y'],
                 ['title', 'LIKE', "%{$searchquery_title}%"]
@@ -40,21 +43,19 @@ class HomeController extends Controller
             ->paginate(15)->toArray();
 
         $advertisements['links'] = HelperController::paginator($advertisements);
- 
+
         $results = [];
 
         foreach ($advertisements['data'] as $ad) {
 
             //APPLY SEARCH FILTERS:: DATE
             if (!empty($searchquery_date) && $searchquery_date) {
-            }
+                if($searchquery_date !== date('Y-m-d', (strtotime($ad['created_at'])))) continue;
 
-            //APPLY SEARCH FILTERS: TITLE
-            if (!empty($searchquery_title) && $searchquery_title) {
+
             }
 
             $results[] = [
-                "created_at" => "2021-08-24T17:18:49.000000Z",
                 "title"       => $ad["title"],
                 "description" => $ad["description"],
                 "photo_1"     => $ad["photo_1"] ? asset('storage' . $ad["photo_1"]) : null,
@@ -63,13 +64,17 @@ class HomeController extends Controller
                 "uuid"        => $ad["uuid"],
             ];
         }
-        
+  
+
         $data = [
             'ads' => $results,
             'advertisements' => $advertisements,
+            'query' => [
+                'date' => $searchquery_date,
+                'title' => $searchquery_title,
+                'orderBy' => $searchquery_orderBy,
+            ]
         ];
-
-
 
         return view('home', ['data' => $data]);
     }
