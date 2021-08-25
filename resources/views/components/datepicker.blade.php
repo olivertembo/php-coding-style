@@ -18,7 +18,7 @@
 
                         <div class="relative">
                             <input type="hidden" name="date" x-ref="date">
-                            <input value="{{ $date }}" type="text" readonly x-model="datepickerValue" @click="showDatepicker = !showDatepicker" @keydown.escape="showDatepicker = false" class="w-full pl-4 pr-10 py-3 leading-none rounded shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" placeholder="Select date">
+                            <input value="{{ $date }}" type="text" readonly x-model="datepickerValue" @click="showDatepicker = !showDatepicker" @keydown.escape="showDatepicker = false" class="w-full pl-4 pr-10 py-3 rounded shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" placeholder="Select date">
 
                             <div class="absolute top-0 right-0 px-3 py-3">
                                 <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">

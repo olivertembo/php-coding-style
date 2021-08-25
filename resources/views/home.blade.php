@@ -13,7 +13,7 @@
                 </div>
                 <form>
                     <div class="p-6 bg-white border-b border-gray-200">
-                        
+
                         <div class="grid grid-cols-4 gap-4">
                             <div>
                                 <div class="relative mr-6">
@@ -35,8 +35,8 @@
                                     </svg>
                                     <select name="order-by" class="rounded text-gray-600 w-60 p-3 pl-3 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
                                         @if($data['query']['orderBy'])
-                                            <option {{ $data['query']['orderBy'] === 'ASC'  ? 'selected' : '' }} value="ASC">ASC</option>
-                                            <option {{ $data['query']['orderBy'] === 'DESC' ? 'selected' : '' }} value="DESC">DESC</option>
+                                        <option {{ $data['query']['orderBy'] === 'ASC'  ? 'selected' : '' }} value="ASC">ASC</option>
+                                        <option {{ $data['query']['orderBy'] === 'DESC' ? 'selected' : '' }} value="DESC">DESC</option>
                                         @endif
                                     </select>
 
@@ -50,7 +50,7 @@
                             </div>
                             <!-- component -->
                             <div>
-                                <div class=""><button name="submit" type="submit" class="btn p-3 py-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-content: flex-end" href="#">Filter</button></div>
+                                <div class="" style="text-align: right;"><button name="submit" type="submit" class="btn p-3 py-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-content: flex-end" href="#">Filter</button></div>
                             </div>
                         </div>
                     </div>
