@@ -43,15 +43,18 @@ This project will work on any machine that has Docker installed.
 ### On Windows | using command prompt
 
 1. Clone repo
-2. Run the following commands in the terminal in root directory of cloned repo
-   Run `docker-compose up` This will create new container in docker then start it  
-   Run `composer update` This should update all dependancies of composer  
-   Run `npm install` npm dependancy packages
+2. Run the following commands in the terminal in root directory of cloned repo  
+   `composer update` This should update all dependancies of composer  
+   `docker-compose up` This will create new container in docker then start it  
+  
 
-3. Run the following commands to create initial users for the application
+3. Open up docker. In your running container, open CLI the for the container 'service-store_laravel.test_1'.
+ Run in the new terminal window. This will run all database migrations, seed, and create symlink for image storage.
    `php artisan migrate` :to migrate databases  
    `php artisan db:seed` : to seed initial data  
-   `php artisan storage` : to make a symlink for image storage
+   `php artisan storage:link` : to make a symlink for image storage
+
+   Hurray! you have just installed everything you need.
 
 4. View project at: localhost:80
 
@@ -59,9 +62,13 @@ This project will work on any machine that has Docker installed.
    user_1@example.com, password_1
    user_2@example.com, password_2
 
+6. Have fun creating ads
+
 ## Project Structure
 
 ## Use the following .env file
+
+In case of any fails on any of the container, use the following credentials for your .env file. But that should alrady be included.
 
 APP_NAME="PHP TEST"  
 APP_ENV=local  
