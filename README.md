@@ -9,7 +9,7 @@ The purpose of the project is to highlight coding style, the use of php with a m
 ## Technologies
 
 1. PHP 8
-2. Laravel 8
+2. Laravel 8 / PHPUnit included
 3. MySQL
 4. Tailwind css framework
 5. docker
@@ -21,7 +21,7 @@ This project will work on any machine that has Docker installed.
 1. MacOs/Windows/Linux
 2. Docker
 
-## STARTING LOCAL Environment
+## Starting Local Dev Environment
 
 ### On MacOs / On Windows
 
