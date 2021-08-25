@@ -45,7 +45,6 @@ class HomeController extends Controller
         $advertisements['links'] = HelperController::paginator($advertisements);
 
         $results = [];
-
         foreach ($advertisements['data'] as $ad) {
 
             //APPLY SEARCH FILTERS:: DATE
@@ -64,7 +63,7 @@ class HomeController extends Controller
                 "uuid"        => $ad["uuid"],
             ];
         }
-  
+
 
         $data = [
             'ads' => $results,
