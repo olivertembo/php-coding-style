@@ -50,7 +50,7 @@
                             </div>
                             <!-- component -->
                             <div>
-                                <div class="" style="text-align: right;"><button name="submit" type="submit" class="btn p-3 py-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-content: flex-end" href="#">Filter</button></div>
+                                <div class="" style="text-align: right;"><button type="submit" class="btn p-3 py-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-content: flex-end" href="#">Filter</button></div>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,12 @@
                     <p id="job" class="text-gray-800 mt-2"> {{ $item['description']}} : Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <div class="flex mt-5">
 
+                        <div class="operations">
 
+                            <a href="/advertisement/{{ $item['uuid'] }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2  mx-4 px-4 border border-blue-500 hover:border-transparent rounded">
+                                Open
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

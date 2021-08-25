@@ -30,7 +30,7 @@ class HomeController extends Controller
         }
 
         //The datepicker's month starts from index zero instead of one
-        if(!empty($searchquery_date) && $searchquery_date){
+        if (!empty($searchquery_date) && $searchquery_date) {
             $time = strtotime($searchquery_date);
             $searchquery_date = date("Y-m-d", strtotime("+1 month", $time));
         }
@@ -49,9 +49,7 @@ class HomeController extends Controller
 
             //APPLY SEARCH FILTERS:: DATE
             if (!empty($searchquery_date) && $searchquery_date) {
-                if($searchquery_date !== date('Y-m-d', (strtotime($ad['created_at'])))) continue;
-
-
+                if ($searchquery_date !== date('Y-m-d', (strtotime($ad['created_at'])))) continue;
             }
 
             $results[] = [
@@ -76,5 +74,20 @@ class HomeController extends Controller
         ];
 
         return view('home', ['data' => $data]);
+    }
+
+    public function show(Advertisement $advertisement)
+    {
+
+        $data = [
+            'title'       => $advertisement->title,
+            'description' => $advertisement->description,
+            'photo_1'     => $advertisement->photo_1 ? asset('storage' . $advertisement->photo_1) : null,
+            'photo_2'     => $advertisement->photo_2 ? asset('storage' . $advertisement->photo_2) : null,
+            'photo_3'     => $advertisement->photo_3 ? asset('storage' . $advertisement->photo_3) : null,
+            'uuid'        => $advertisement->uuid,
+        ];
+
+        return view('pages.guest.advertisement-show', ['data' => $data]);
     }
 }

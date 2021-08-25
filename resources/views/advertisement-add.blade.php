@@ -125,7 +125,7 @@
                             });
                         </script>
                         <br />
-                        <div class="mt-5"><button name="submit" type="submit" class="btn bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-content: flex-end" href="#">Publish property</button></div>
+                        <div class="mt-5"><button name="submit" type="submit" class="btn bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-content: flex-end" href="#">Publish Ad</button></div>
                         <br /><br />
                     </div>
 

@@ -233,8 +233,6 @@ class AdvertisementController extends Controller
     public function show(Advertisement $advertisement)
     {
 
-        //$ad["photo_1"] ? asset('storage' . $ad["photo_1"]) : null,
-        //
         $data = [
             'title'       => $advertisement->title,
             'description' => $advertisement->description,
