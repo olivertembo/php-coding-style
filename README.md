@@ -25,14 +25,14 @@ This project will work on any machine that has Docker installed.
 
 1. Clone repo
 2. Run the following commands in the terminal in root directory of cloned repo  
-   `composer update` This should update all dependancies of composer  
-   `docker-compose up` This will create new container in docker then start it
+   `composer update`  
+   `docker-compose up`
 
 3. Open up docker. In your running container, open CLI the for the container 'service-store_laravel.test_1'.
    Run in the new terminal window. This will run all database migrations, seed, and create symlink for image storage.
-   `php artisan migrate` :to migrate databases  
-    `php artisan db:seed` : to seed initial data  
-    `php artisan storage:link` : to make a symlink for image storage
+   `php artisan migrate`  
+    `php artisan db:seed`  
+    `php artisan storage:link`  
 
     Hurray! you have just installed everything you need.
 
