@@ -18,12 +18,11 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/home', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('/home', [AdvertisementController::class, 'index'])->name('dashboard');
 
     //advertisementS
     Route::get('/advertisements',                    [AdvertisementController::class, 'index'])->name('advertisements');
