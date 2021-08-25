@@ -13,7 +13,6 @@
                 </div>
                 <form>
                     <div class="p-6 bg-white border-b border-gray-200">
-                        Filter
                         <div class="grid grid-cols-4 gap-4">
                             <div>
                                 <div class="relative mr-6 my-2">

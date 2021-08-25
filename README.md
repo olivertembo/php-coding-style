@@ -32,7 +32,7 @@ This project will work on any machine that has Docker installed.
 3. Run the following commands to create initial users for the application
    `php artisan migrate` :to migrate databases  
    `php artisan db:seed` : to seed initial data  
-   `php artisan storage` : to make a symlink for image storage
+   `php artisan storage:link` : to make a symlink for image storage
 
 4. View project at: localhost:80
 
