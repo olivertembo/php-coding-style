@@ -25,20 +25,24 @@ This project will work on any machine that has Docker installed.
 
 ### On MacOs / On Windows
 
-The steps are the same for both MacOs and Windows machine  
+The steps are the same for both MacOs and Windows machine
 
-1. Clone repo  
-2. Run the following commands in the terminal in root directory of cloned repo  
-   ```
-   composer update
-   docker-compose up
-   ```
+1. Clone repo
+2. Run the following commands in the terminal / command prompt in root directory of cloned repo
+
+    ```
+    composer update
+    docker-compose up
+    ```
 
 3. Open up docker. In your running container, open CLI the for the container 'service-store_laravel.test_1'.  
    Run in the new terminal window. This will run all database migrations, seed, and create symlink for image storage.
-   `php artisan migrate`  
-    `php artisan db:seed`  
-    `php artisan storage:link`  
+
+    ```
+     php artisan migrate
+     php artisan db:seed
+     php artisan storage:link
+    ```
 
     Hurray! you have just installed everything you need.
 
@@ -46,7 +50,7 @@ The steps are the same for both MacOs and Windows machine
 
 5. Use the following credentials to log in
    user_1@example.com, password_1  
-   user_2@example.com, password_2  
+   user_2@example.com, password_2
 
 6. Have fun creating ads
 
